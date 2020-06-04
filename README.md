@@ -13,6 +13,6 @@ THEN I am again presented with current and future conditions for that city
 My first step in this project was to create the html and css for how I wanted my dashboard to look.  
 Here is what i ended up with:
 
-<img src="/assets/images/Screenshot%20(31).png" />
+<img src="/assets/images/Screenshot%20(32).png" />
 
 The next step i took in this project was to obtain my api key for the weather website to add to my Javascript to get the data needed for this project.
