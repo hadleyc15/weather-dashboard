@@ -43,16 +43,6 @@ body {
     border-right: none;
 }
 
-#searchbtn {
-    background-color: rgba(255, 255, 255, 0.589);
-    border-radius: 10px;
-    float: right;
-}
-
-#searchbtn:hover {
-    background-color: white;
-}
-
 #main-col-right {
     background-color: rgba(255, 255, 255, 0.589);
     border-top-right-radius: 10px;
@@ -61,7 +51,7 @@ body {
 
 .city-div {
     border: 1px solid rgba(112, 112, 112, 0.315);
-    background-color: rgba(255, 255, 255, 0.295);
+    background-color:white;
     margin: 15px;
     height: 200px;
     float: left;    
@@ -92,7 +82,7 @@ body {
 .forecast-box {
     width: 120px;
     height: 140px;
-    background-color: rgb(230, 230, 230);
+    background-color: white;
     float: left;
     border: 1px solid rgba(112, 112, 112, 0.315);
     margin: 15px 1% 0px 1%;
