@@ -9,3 +9,10 @@ WHEN I view future weather conditions for that city
 THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
+
+My first step in this project was to create the html and css for how I wanted my dashboard to look.  
+Here is what i ended up with:
+
+<img src="" />
+
+The next step i took in this project was to obtain my api key for the weather website to add to my Javascript to get the data needed for this project.
