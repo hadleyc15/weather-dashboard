@@ -3,7 +3,7 @@ header {
     height: 100px;
 }
 
-#header-text {
+h1 {
     color: black;
     font-size: 50px;
     text-align: center;
