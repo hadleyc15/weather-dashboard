@@ -120,6 +120,10 @@ h1 {
     flex-direction: row;
 }
 
+.col-2 p {
+    padding-left: 25px;
+}
+
 .uv-low {
     background-color: darkgreen;
 }

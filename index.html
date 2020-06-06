@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <!--Nav Bar Header-->
+    <!--Header-->
     <nav class="navbar" id="navbar">
         <span class="navbar-text stroke" id="weather-dashboard">
             Weather Dashboard
@@ -24,18 +24,18 @@
             <button class="btn btn-outline-success my-2 my-sm-0" id="searchBtn" type="submit">Search</button>
         </form>
     </nav>
-    <!-- List Group to Display Search Results-->
+    <!-- List for previously searched cities-->
     <div class="row">
         <div class="col-2">
+            <p>Previous Searches:</p>
             <ul class="list-group" id="search-list">
             </ul>
         </div>
-        <!-- Jumbotron for displaying City Weather Data-->
+        <!-- Jumbotron for current weather in searched city -->
         <div class="col-10">
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
                     <h1 class="display-4"></h1>
-                    <!-- <div id="icon"><img id="wicon" src="" alt="Weather icon"></div> -->
                     <p class="lead city"></p>
                     <p class="lead wind"></p>
                     <p class="lead humidity"></p>
