@@ -13,22 +13,34 @@ $(document).ready(function () {
     $("#searchBtn").click(function (event) {
         event.preventDefault();
         var searchTerm = $("#search").val().trim();
-        findCity(searchTerm);
+        var searchTermCapitalized = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
+        findCity(searchTermCapitalized);
     })
     //finds the weather based off of the input city
     function findCity(cityName) {
         var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + APIKey;
         //pushes searched city to a list on the left hand side of the page
-        $("<button>").text(cityName).prepend(".list-group-item")
+       
         $.ajax({
             type: "GET",
             url: queryURL
         }).then(function (response) {
             var previousCity = JSON.parse(localStorage.getItem("cities"));
+            console.log(previousCity)
+            //check if city in search is in list
+            //then if yes dont add to list
+            //else add to list
             if (previousCity) {
-                previousCity.push(response.name);
-                localStorage.setItem("cities", JSON.stringify(previousCity));
-            } else {
+                if ($.inArray(cityName, previousCity) === -1) {
+                    console.log("Not found in array")
+                    // $("<button>").text(cityName).prepend(".list-group-item")
+                    //localStorage.setItem("cities", JSON.stringify(previousCity))
+                    previousCity.push(response.name)
+                    localStorage.setItem("cities", JSON.stringify(previousCity));
+                }
+                //  previousCity.push(response.name);
+             } 
+              else {
                 searchArr.push(response.name)
                 localStorage.setItem("cities", JSON.stringify(searchArr));
             }
@@ -83,11 +95,12 @@ $(document).ready(function () {
             //beggining of five day forcast portion
             var fiveDayForcast = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&units=imperial" + APIKey;
 
-            for (var i = 1; i < 6; i++) {
-                $.ajax({
-                    url: fiveDayForcast,
-                    type: "GET"
-                }).then(function (responseFiveDayForcast) {
+            $.ajax({
+                url: fiveDayForcast,
+                type: "GET"
+            }).then(function (responseFiveDayForcast) {
+                console.log(responseFiveDayForcast);
+                for (var i = 1; i < 6; i++) {
                     var cardbodyElem = $("<div>").addClass("card-body");
 
                     var fiveDayCard = $("<div>").addClass(".cardbody");
@@ -113,8 +126,9 @@ $(document).ready(function () {
                     $("#five-day").append(fiveDayCard);
                     $("#fiveDayTemp[i]").empty();
                     $(".jumbotron").append(cardbodyElem);
-                })
-            }
+                }
+            })
+
             $("#search").val("");
 
         })
