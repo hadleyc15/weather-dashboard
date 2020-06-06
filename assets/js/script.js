@@ -14,6 +14,22 @@ $(document).ready(function () {
         findCity(searchTerm);
     })
 
-    
+    function findCity(cityName) {
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + APIKey;
+
+        $("<button>").text(cityName).prepend(".list-group-item")
+        $.ajax({
+            type: "GET",
+            url: queryURL
+        }).then(function (response) {
+            var previousCity = JSON.parse(localStorage.getItem("cities"));
+            if (previousCity) {
+                previousCity.push(response.name);
+                localStorage.setItem("cities", JSON.stringify(previousCity));
+            } else {
+                searchArr.push(response.name)
+                localStorage.setItem("cities", JSON.stringify(searchArr));
+            }
+        
 
 })
