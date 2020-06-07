@@ -21,10 +21,15 @@ that was being returned. I discovered that this particular api sends the tempura
 
 <img src="/assets/images/Screenshot%20(35).png" />
 
-So I had to google the mathematical way to convert Kelvin to Fahrenheit and include that in the code.  Im sure there is probably a way to get the api to return the temp in 
-Far=hrenheit but I couldn't find it.  So i opted to just add the math to the code.
+So I had to google the mathematical way to convert Kelvin to Fahrenheit and include that in the code.  I'm sure there is probably a way to get the api to return the temp in 
+Farhrenheit but I couldn't find it.  So I opted to just add the math to the code.
 
 <img src="/assets/images/Screenshot%20(36).png" />
+
+I then wanted to add the color coding for the UV index.  i had to google uv index scale to find out exactly what the color coding was and when it changed.  Then i added the CSS
+to reflect that.
+
+<img src="/assets/images/Screenshot%20(34).png" />
 
 After that I worked on the five day display.  At first I was not successful.  I was getting data to display in all five boxes but it was all the same day and not five different days.
 With help from my tutor, we discovered that my for loop was overriding my ajax call for that data.  The for loop was not giving the ajax call time to call the api before it diplayed
