@@ -47,6 +47,6 @@ The last part was to transform the searched cities into buttons that could be cl
 
 <img src="/assets/images/Screenshot%20(40).png" />
 
-Deployed URL:
+Deployed URL: https://hadleyc15.github.io/weather-dashboard/
 
-Github Repo:
+Github Repo: https://github.com/hadleyc15/weather-dashboard
