@@ -1,7 +1,8 @@
+/* Main Body Styling */
 body {
     background-color: white;
 }
-
+/* Header Styles */
 .navbar {
     font-size: 40px;
     text-align: center;
@@ -28,7 +29,7 @@ body {
     color:  white;
     line-height: 50px;
 }
-
+/* Main weather display styling */
 .card {
     border: none;
 }
@@ -123,7 +124,7 @@ h1 {
 .col-2 p {
     padding-left: 25px;
 }
-
+/* UV index color coding */
 .uv-low {
     background-color: darkgreen;
 }

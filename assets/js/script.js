@@ -19,28 +19,25 @@ $(document).ready(function () {
     //finds the weather based off of the input city
     function findCity(cityName) {
         var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + APIKey;
-        //pushes searched city to a list on the left hand side of the page
-       
         $.ajax({
             type: "GET",
             url: queryURL
+            //pushes searched city to a list on the left hand side of the page
         }).then(function (response) {
             var previousCity = JSON.parse(localStorage.getItem("cities"));
             console.log(previousCity)
             //check if city in search is in list
-            //then if yes dont add to list
-            //else add to list
             if (previousCity) {
+                //then if yes dont add to list
                 if ($.inArray(cityName, previousCity) === -1) {
                     console.log("Not found in array")
-                    // $("<button>").text(cityName).prepend(".list-group-item")
-                    //localStorage.setItem("cities", JSON.stringify(previousCity))
                     previousCity.push(response.name)
                     localStorage.setItem("cities", JSON.stringify(previousCity));
                 }
-                //  previousCity.push(response.name);
-             } 
-              else {
+
+            }
+            //else add to list
+            else {
                 searchArr.push(response.name)
                 localStorage.setItem("cities", JSON.stringify(searchArr));
             }
@@ -49,6 +46,7 @@ $(document).ready(function () {
             var currentDate = moment().format("  MM-DD-YYYY");
             var windData = $("<p>").text("Wind Speed: " + response.wind.speed).addClass("lead");
             var humidityData = $("<p>").text("Humidity: " + response.main.humidity + "%").addClass("lead");
+            //adds weather icon recieved from api based off of weather conditions for the given day
             var iconcode = response.weather[0].icon;
             var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
             var weatherImg = $("<img>").attr("src", iconurl);
@@ -106,18 +104,18 @@ $(document).ready(function () {
                     var fiveDayCard = $("<div>").addClass(".cardbody");
                     var fiveDate = $("<h5>").text(moment.unix(responseFiveDayForcast.daily[i].dt).format("MM/DD/YYYY"));
                     fiveDayCard.addClass("headline");
-
+                    //coding for the daily temp for five days
                     var fiveDayTemp = $("<p>").text("Temp: " + responseFiveDayForcast.daily[i].temp.max + "°");
                     fiveDayTemp.attr("id", "#fiveDayTemp[i]");
-
+                    //coding for the daily humidity for five days
                     var fiveHumidity = $("<p>").attr("id", "humDay").text("Humidity: " + JSON.stringify(responseFiveDayForcast.daily[i].humidity) + "%");
                     fiveHumidity.attr("id", "#fiveHumidity[i]");
-
+                    //adds weather icons from the api
                     var iconCode = responseFiveDayForcast.daily[i].weather[0].icon;
                     var iconURL = "https://openweathermap.org/img/w/" + iconCode + ".png";
                     var weatherImgDay = $("<img>").attr("src", iconURL);
                     $("#testImage").attr("src", iconURL);
-
+                    //appends elements to the page
                     cardbodyElem.append(fiveDate);
                     cardbodyElem.append(weatherImgDay);
                     cardbodyElem.append(fiveDayTemp);
